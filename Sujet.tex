@@ -1,0 +1,106 @@
+\documentclass[10pt,a4paper,oneside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{textpos}
+\usepackage{pstricks}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadows}
+
+\tikzstyle{every picture}=[scale=0.7, inner sep=1.5pt]
+\def\des{\node[draw,shape=rectangle,rounded corners=2pt,minimum size=.5cm,shade]}
+
+\usepackage[a4paper,hmargin=1.5cm, vmargin=1.5cm, centering]{geometry}
+
+\definecolor{violetcurie}{RGB}{115,26,67}
+\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+
+\usepackage{listings}
+\lstset
+{
+  language=C,
+	tabsize=2,
+	basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries\color{violetcurie},
+  commentstyle=\itshape\color{forestgreen},
+	identifierstyle=\color{blue},
+  stringstyle=\color{brown}
+}
+
+\begin{document}
+
+\date{}
+\author{}
+\title{
+    \vspace{-1.5cm}
+    S U J E T\\
+    {\Large \textsc{bases de la programmation orientée objet}}\\
+    \vspace{3 mm}
+    {\Large -- \textsc{Crazy Circus} --}\\
+}
+
+\maketitle
+
+\vspace{-2.1cm}
+
+\section{Présentation du jeu}
+
+Le jeu a pour but de déterminer quel est le meilleur dompteur parmi les joueurs. Il s'agit de réussir un exercice de domptage mettant en \oe{}uvre trois animaux : un lion, un ours blanc et un éléphant. Ces animaux sont répartis sur deux podiums -- l'un est bleu, l'autre est rouge. Lorsque deux ou trois animaux sont sur le même podium, ils forment une pile (au sens commun du terme).
+
+\medskip
+
+Les animaux réagissent uniquement à 5 ordres distincts :
+
+\medskip
+
+\begin{itemize}
+  \item \textbf{KI} -- L'animal se trouvant en haut de la pile du podium bleu saute pour rejoindre le sommet de la pile du podium rouge.
+  \item \textbf{LO} -- L'animal se trouvant en haut de la pile du podium rouge saute pour rejoindre le sommet de la pile du podium bleu.
+	\item \textbf{SO} -- Les deux animaux se trouvant au sommet des piles des deux podiums échangent leur place.  
+  \item \textbf{NI} -- L'animal se trouvant en bas de la pile du podium bleu monte et se place en haut de la pile de ce même podium.
+  \item \textbf{MA} -- L'animal se trouvant en bas de la pile du podium rouge monte et se place en haut de la pile de ce même podium.
+\end{itemize}
+
+\medskip
+
+Le but du jeu est de trouver le plus rapidement la bonne séquence d'ordres qui, réalisés par les animaux, les conduiront d'une situation de départ à une situation à atteindre. Le joueur ayant trouver le premier une bonne séquence remporte le tour. Un joueur ayant donné une mauvaise séquence ne peut plus en proposer d'autre pour ce tour. Si, durant un tour, il n'y a plus qu'un joueur à ne pas avoir proposer de séquence, celui-ci remporte le tour. 
+
+\medskip
+
+La situation initiale de début du jeu et la situation à atteindre à chaque tour sont déterminées en tirant au hasard l'une des 24 cartes représentant chaque situation possible. La situation atteinte après un tour est la situation de départ du tour qui suit. Une carte une fois tirée n'est pas remise en jeu et la partie se termine lorsque les cartes sont épuisées. Le joueur ayant remporté le plus de tours gagne la partie.
+ 
+\section{Travail à faire}
+
+L'application à développer doit permettre à des joueurs de s'affronter. Le programme devra gérer une partie dans sa totalité.
+
+Les identités des joueurs (leurs prénoms ou surnom par exemple) doivent être reçus sur la ligne de commande au lancement du programme. Le programme doit afficher la situation de jeu sous la forme reproduite ci-dessous.
+
+La situation de départ est donnée en haut à gauche (ici le lion est sous l'ours sur le podium bleu alors que l'éléphant est seul sur le podium rouge) et la situation à atteindre est indiquée à droite (ici le lion est sur l'éléphant sur le podium bleu alors que l'ours est seul sur le podium rouge). Les différents ordres possibles sont rappelés en bas (les sauts d'un sommet à l'autre sont représentés par des flèches et un déplacement du bas vers le haut est symbolisé par le caractère (\verb'^'). Les séquences KIMALONI et SONI sont deux solutions pour cette situation de jeu.
+
+\begin{verbatim}
+            OURS                     LION
+            LION    ELEPHANT       ELEPHANT    OURS
+            ----      ----    ==>    ----      ----
+            BLEU      ROUGE          BLEU      ROUGE
+	
+          --------------------------------------------
+          KI : BLEU --> ROUGE    NI : BLEU  ^
+          LO : BLEU <-- ROUGE    MA : ROUGE ^    
+          SO : BLEU <-> ROUGE
+\end{verbatim}
+
+Lorsqu'un joueur veut jouer, il saisi son identité suivie de la séquence d'ordres qu'il propose. Si DP est une identité connue, le joueur peut saisir `\texttt{DP KIMALONI}' par exemple. 
+
+Si l'identité n'est pas connue, la séquence doit être ignorée et un message d'erreur affiché. Si le joueur n'avait pas le droit de jouer (\textit{i.e.} il a déjà fait une erreur) ou que la séquence n'est pas la bonne, un message informatif doit être affiché par le programme. Si la séquence est correcte, le joueur remporte un point, une nouvelle situation de jeu est choisie aléatoirement par le programme parmi celles qui n'ont pas encore été jouées et un nouveau tour peut débuter.
+
+En fin de partie, le score et le rang des joueurs sont affichés (par score décroissant et par ordre alphabétique en cas d'égalité).
+
+\end{document}
