@@ -10,7 +10,7 @@ The "Crazy Circus Game" GitHub project is an application that allows multiple pl
 
 ## Game Rules
 
-The game aims to determine which is the best tamer among the players. It is a question of succeeding in a taming exercise involving three animals : a lion, a white bear and an elephant. These animals are distributed on two podiums : one is blue, the other is red. When two or three animals are on the same podium, they form a stack.
+The game aims to determine which is the best tamer among the players. It is a question of succeeding in a taming exercise involving three animals : a `lion`, a `white bear` and an `elephant`. These animals are distributed on two podiums : one is `blue`, the other is `red`. When two or three animals are on the same podium, they form a stack.
 
 Animals only react to 5 distinct commands :
 
@@ -22,13 +22,13 @@ Animals only react to 5 distinct commands :
 
 The goal of the game is to find as quickly as possible the correct sequence of commands that, when performed by the animals, will lead them from a starting situation to a desired situation. The player who first finds a correct sequence wins the round. A player who provides an incorrect sequence can no longer propose another one for that round. If, during a round, there is only one player left who has not proposed a sequence, that player wins the round.
 
-The initial starting situation of the game and the target situation for each round are determined by randomly drawing one of the 24 cards representing each possible situation. The situation reached after a round becomes the starting situation for the next round. Once a card is drawn, it is not put back into play and the game ends when all the cards have been exhausted. The player who has won the most rounds wins the game.
+The initial starting situation of the game and the target situation for each round are determined by randomly drawing one of the `24 cards` representing each possible situation. The situation reached after a round becomes the starting situation for the next round. Once a card is drawn, it is not put back into play and the game ends when all the cards have been exhausted. The player who has won the most rounds wins the game.
 
 ## Description
 
 The application allows players to compete during a complete game. The identities of the players (their first names or nicknames for example) must be received on the command line when the program is launched.
 
-The starting situation is displayed at the top left and the target situation is indicated on the right. The different possible commands are reminded at the bottom. Multiple different sequences can be correct for a game situation.
+The starting situation is displayed at the `top left` and the target situation is indicated on the `right`. The different possible commands are reminded at the `bottom`. Multiple different sequences can be correct for a game situation.
 
 When a player wants to play, he enters his identity followed by the sequence of commands he proposes. For example, if `Pierre` is a known identity, the player can enter `Pierre KIMALONI`.
 
