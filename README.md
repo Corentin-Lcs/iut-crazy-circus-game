@@ -1,8 +1,10 @@
 <h1 align="center">Crazy Circus Game · IUT de Paris - Rives de Seine</h1>
 
+
 The "Crazy Circus Game" GitHub project is an application that allows multiple players to play a game of Crazy Circus. The application ensures adherence to the game's rules and manages the entire progression of the game until the announcement of the best tamer.
 
-> **Warning** : The project has been developed exclusively in a professional context, with the specific aim of promoting learning. It is carried out as a project for the University of Paris.
+> [!IMPORTANT]  
+> The project has been developed exclusively in a professional context, with the specific aim of promoting learning. It is carried out as a project for the University of Paris.
 
 <p align="center">
   <img src="https://github.com/Corentin-Lcs/iut-crazy-circus-game/blob/main/Crazy_Circus.png" alt="Crazy_Circus.png"/>
